@@ -3,7 +3,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <eddsa.h>
+#include <eddsa.hpp>
+
+using namespace def::eddsa;
 
 
 int main()

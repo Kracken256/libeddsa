@@ -3,7 +3,7 @@ include(CheckPrototypeDefinition)
 
 cmake_minimum_required(VERSION 3.0.0)
 
-project(eddsa C)
+project(eddsa CXX C)
 
 set(EDDSA_VERSION_MAJOR 0)
 set(EDDSA_VERSION_MINOR 8)
@@ -23,13 +23,13 @@ endif ()
 check_prototype_definition(memset_s
 	"errno_t memset_s( void *dest, rsize_t destsz, int ch, rsize_t count )"
 	"0"
-	"string.h"
+	"string.hpp"
 	HAVE_MEMSET_S)
 
 check_prototype_definition(explicit_bzero
 	"void explicit_bzero(void *b, size_t len)"
 	""
-	"string.h"
+	"string.hpp"
 	HAVE_EXPLICIT_BZERO)
 
 

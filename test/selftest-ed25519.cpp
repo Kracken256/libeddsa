@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <eddsa.h>
+#include <eddsa.hpp>
 
+using namespace def::eddsa;
 
 struct {
 	uint8_t		sec[ED25519_KEY_LEN];
@@ -11,7 +12,7 @@ struct {
 	uint8_t		sig[ED25519_SIG_LEN];
 	uint8_t		msg[1024];
 } table[] = {
-	#include "ed25519-table.h"
+	#include "ed25519-table.hpp"
 };
 
 const int table_num = sizeof(table) / sizeof(table[0]);

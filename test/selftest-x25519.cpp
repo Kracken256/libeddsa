@@ -2,14 +2,15 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <eddsa.h>
+#include <eddsa.hpp>
+using namespace def::eddsa;
 
 struct {
 	uint8_t		point[X25519_KEY_LEN];
 	uint8_t		scalar[X25519_KEY_LEN];
 	uint8_t		result[X25519_KEY_LEN];
 } table[] = {
-	#include "x25519-table.h"
+	#include "x25519-table.hpp"
 };
 
 const int table_num = sizeof(table) / sizeof(table[0]);

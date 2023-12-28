@@ -3,10 +3,10 @@ include_directories("../lib")
 #
 # Selftests against dynamic library
 #
-add_executable(selftest-ed25519 selftest-ed25519.c)
-add_executable(selftest-x25519 selftest-x25519.c)
-add_executable(selftest-x25519_base selftest-x25519_base.c)
-add_executable(selftest-convert selftest-convert.c)
+add_executable(selftest-ed25519 selftest-ed25519.cpp)
+add_executable(selftest-x25519 selftest-x25519.cpp)
+add_executable(selftest-x25519_base selftest-x25519_base.cpp)
+add_executable(selftest-convert selftest-convert.cpp)
 
 target_link_libraries(selftest-ed25519 eddsa)
 target_link_libraries(selftest-x25519 eddsa)
@@ -26,11 +26,11 @@ add_test(NAME test-convert COMMAND selftest-convert)
 # test non-exported functions of the library.
 #
 if (BUILD_STATIC)
-	add_executable(selftest-static-sha512 selftest-sha512.c)
-	add_executable(selftest-static-ed25519 selftest-ed25519.c)
-	add_executable(selftest-static-x25519 selftest-x25519.c)
-	add_executable(selftest-static-x25519_base selftest-x25519_base.c)
-	add_executable(selftest-static-convert selftest-convert.c)
+	add_executable(selftest-static-sha512 selftest-sha512.cpp)
+	add_executable(selftest-static-ed25519 selftest-ed25519.cpp)
+	add_executable(selftest-static-x25519 selftest-x25519.cpp)
+	add_executable(selftest-static-x25519_base selftest-x25519_base.cpp)
+	add_executable(selftest-static-convert selftest-convert.cpp)
 
 	target_link_libraries(selftest-static-sha512 eddsa-static)
         target_link_libraries(selftest-static-ed25519 eddsa-static)

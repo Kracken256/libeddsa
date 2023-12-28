@@ -1,9 +1,9 @@
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(EDDSA_SRC fld.c sc.c ed.c sha512.c ed25519-sha512.c x25519.c)
+set(EDDSA_SRC fld.cpp sc.cpp ed.cpp sha512.cpp ed25519-sha512.cpp x25519.cpp)
 
 if (USE_STACKCLEAN)
-  list(APPEND EDDSA_SRC burn.c burnstack.c)
+  list(APPEND EDDSA_SRC burn.cpp burnstack.cpp)
 endif ()
 
 
@@ -43,9 +43,9 @@ endif ()
 set_property(TARGET eddsa PROPERTY VERSION ${EDDSA_VERSION_MAJOR}.${EDDSA_VERSION_MINOR})
 set_property(TARGET eddsa PROPERTY SOVERSION ${EDDSA_VERSION_MAJOR})
 set_property(TARGET eddsa PROPERTY MACOSX_RPATH TRUE)
-install(TARGETS eddsa DESTINATION LIBRARY PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ)
+install(TARGETS eddsa DESTINATION /usr/lib PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ)
 
-install(FILES eddsa.h TYPE INCLUDE)
+install(FILES eddsa.hpp TYPE INCLUDE)
 
 
 if (BUILD_STATIC)
