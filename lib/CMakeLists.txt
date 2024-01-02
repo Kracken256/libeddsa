@@ -50,6 +50,7 @@ install(FILES eddsa.hpp TYPE INCLUDE)
 
 if (BUILD_STATIC)
   add_library(eddsa-static STATIC ${EDDSA_SRC})
+  target_compile_options(eddsa-static PRIVATE -fPIC)
 
   if (BITNESS EQUAL 64)
     set_property(TARGET eddsa-static APPEND PROPERTY COMPILE_DEFINITIONS NO_AUTO_BITNESS)
