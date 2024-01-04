@@ -2,10 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <eddsa.hpp>
+#include <eddsa.h>
 
-#include "sha512.hpp"
-using namespace def::eddsa;
+#include "sha512.h"
 
 #define BUFLEN		(16*1024)
 
@@ -14,7 +13,7 @@ struct {
 	uint8_t		buffer[BUFLEN];
 	uint8_t		hash[SHA512_HASH_LENGTH];
 } table[] = {
-	#include "sha512-table.hpp"
+	#include "sha512-table.h"
 };
 
 const int table_num = sizeof(table) / sizeof(table[0]);

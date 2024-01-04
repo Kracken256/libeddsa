@@ -3,8 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <eddsa.hpp>
-using namespace def::eddsa;
+#include <eddsa.h>
 
 #define TESTNUM		1024
 

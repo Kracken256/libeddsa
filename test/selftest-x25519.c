@@ -2,15 +2,14 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <eddsa.hpp>
-using namespace def::eddsa;
+#include <eddsa.h>
 
 struct {
 	uint8_t		point[X25519_KEY_LEN];
 	uint8_t		scalar[X25519_KEY_LEN];
 	uint8_t		result[X25519_KEY_LEN];
 } table[] = {
-	#include "x25519-table.hpp"
+	#include "x25519-table.h"
 };
 
 const int table_num = sizeof(table) / sizeof(table[0]);
@@ -38,7 +37,7 @@ main()
 	 * test old interface
 	 */
 	for (i = 0; i < table_num; i++) {
-		DH(check, table[i].scalar, table[i].point);
+		eddsa_DH(check, table[i].scalar, table[i].point);
 		if (memcmp(check, table[i].result, X25519_KEY_LEN) != 0) {
 			fprintf(stderr, "dh-selftest: (OLD API) test number %d failed\n", i+1);
 			return 1;

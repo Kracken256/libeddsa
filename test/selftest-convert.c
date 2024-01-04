@@ -3,9 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <eddsa.hpp>
-
-using namespace def::eddsa;
+#include <eddsa.h>
 
 
 int main()
@@ -65,7 +63,7 @@ int main()
 		eddsa_sk_eddsa_to_dh(dhsk, edsk);
 
 		/* generate dh public component */
-		DH(dhpk, dhsk, B);
+		eddsa_DH(dhpk, dhsk, B);
 
 		/* derive dh public component from eddsa public key */
 		eddsa_pk_eddsa_to_dh(check, edpk);
