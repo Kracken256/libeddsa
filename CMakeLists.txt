@@ -8,11 +8,8 @@ project(eddsa CXX C)
 set(EDDSA_VERSION_MAJOR 0)
 set(EDDSA_VERSION_MINOR 8)
 
-
 option(USE_STACKCLEAN "clean all secret variables from stack" ON)
 option(BUILD_STATIC "build static version of library" ON)
-option(BUILD_TESTING "build test" ON)
-
 
 if (UNIX)
 	set(CMAKE_C_FLAGS "-std=c99 -fwrapv -Wall -Wextra -pedantic -O3")
